@@ -53,7 +53,6 @@ public class GameManager : MonoBehaviour
     {
         sequence.Add(Random.Range(0, 9));
     }
-
     IEnumerator PlaySequence()
     {
         playerTurn = false;
@@ -78,9 +77,7 @@ public class GameManager : MonoBehaviour
 
         messageText.text = "Repeat";
     }
-
-    public void BlockPressed(int blockIndex)
-{
+    public void BlockPressed(int blockIndex){
     if (!playerTurn)
         return;
 
@@ -107,8 +104,7 @@ public class GameManager : MonoBehaviour
         GameOver();
     }
 }
-    void GameOver()
-{
+    void GameOver(){
     playerTurn = false;
 
     SetBlocksInteractable(false);
@@ -125,7 +121,7 @@ public class GameManager : MonoBehaviour
         $"Game Over\nStreak: {streak}";
 
     Invoke(nameof(RestartGame), 2f);
-}
+    }
 
     void RestartGame()
     {
@@ -152,5 +148,15 @@ public class GameManager : MonoBehaviour
         {
             block.t = Mathf.Clamp(0.5f - (streak * 0.02f),0.15f,0.5f);
         }
+    }
+    public void QuitGame()
+    {
+        Debug.Log("Quitting Game...");
+
+    #if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+    #else
+        Application.Quit();
+    #endif
     }
 }

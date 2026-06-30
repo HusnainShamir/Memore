@@ -51,7 +51,7 @@ public class GameManager : MonoBehaviour
 }
     void AddNewStep()
     {
-        sequence.Add(Random.Range(0, 9));
+        sequence.Add(Random.Range(0, blocks.Length));
     }
     IEnumerator PlaySequence()
     {

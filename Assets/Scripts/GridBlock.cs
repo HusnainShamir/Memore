@@ -9,8 +9,8 @@ public class GridBlock : MonoBehaviour
     private Button button;
     private Image image;
 
-    Color normalColor = new Color(0.85f, 0.85f, 0.85f);
-    Color glowColor = new Color(1f, 0.9f, 0.4f);
+    public Color normalColor = new Color(1f, 1f, 1f);
+    public Color glowColor = new Color(1f, 1f, 1f);
 
     public float t = 0.5f;
 
@@ -19,7 +19,7 @@ public class GridBlock : MonoBehaviour
         button = GetComponent<Button>();
         image = GetComponent<Image>();
 
-        image.color = normalColor;
+        //image.color = normalColor;
 
         button.onClick.AddListener(OnClicked);
     }
